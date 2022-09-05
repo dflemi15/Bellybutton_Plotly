@@ -119,7 +119,9 @@ function buildCharts(sample) {
     Plotly.newPlot("bubble", bubbleData, bubbleLayout); 
 
     // 3. Create a variable that holds the washing frequency.
-    var washFreq = firstSample.wfreq
+    var metadataArray = data.metadata.filter(sampleObj => sampleObj.id == sample);
+    var metadata = metadataArray[0];
+    var washFreq = parseFloat(metadata.wfreq);
     
     // 4. Create the trace for the gauge chart.
     var gaugeData = [{
